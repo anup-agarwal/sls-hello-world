@@ -1,0 +1,17 @@
+service: hello-world-nodejs
+
+provider:
+  name: aws
+  region: ap-south-1
+  runtime: nodejs18.x
+  memorySize: 256
+  timeout: 30
+  stage: dev
+
+functions:
+  helloWorld:
+    handler: controller/hello-world.helloWorld
+    events:
+      - http:
+          method: get
+          path: /
